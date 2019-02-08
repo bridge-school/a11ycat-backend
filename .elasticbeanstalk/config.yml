@@ -1,0 +1,19 @@
+branch-defaults:
+  master:
+    environment: a11ycat-backend-env
+environment-defaults:
+  a11ycat-backend-env:
+    branch: null
+    repository: null
+global:
+  application_name: a11ycat-backend-app
+  default_ec2_keyname: null
+  default_platform: arn:aws:elasticbeanstalk:us-east-2::platform/Node.js running on
+    64bit Amazon Linux/4.4.6
+  default_region: us-east-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  sc: git
+  workspace_type: Application

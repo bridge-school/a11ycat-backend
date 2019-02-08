@@ -1,0 +1,42 @@
+{
+  "name": "bridge-node-starter",
+  "version": "0.0.0",
+  "description": "Node server starter",
+  "engines": {
+    "node": ">=10.15"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "start:local": "nodemon src/index.js",
+    "test:watch": "jest --watch"
+  },
+  "author": "",
+  "devDependencies": {
+    "jest": "^22.4.4",
+    "nodemon": "^1.17.5",
+    "supertest": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "firebase-admin": "^6.0.0",
+    "morgan": "^1.9.0",
+    "winston": "^3.0.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/*.test.js",
+      "**/*.spec.js",
+      ".git",
+      "node_modules"
+    ]
+  },
+  "jest": {
+    "testURL": "http://localhost/",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js)$",
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ]
+  }
+}
