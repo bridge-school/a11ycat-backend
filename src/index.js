@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const admin = require("firebase-admin");
 const cors = require("cors");
+var bodyParser = require("body-parser");
 
 const router = require("./api");
 const { logger } = require("./utils/logger");
@@ -9,8 +10,6 @@ const { errorHandler } = require("./middleware/error-handler");
 
 // Create a new express application instance
 const app = express();
-
-// app.options("*", cors()); // include before other routes
 
 // CORS
 app.use(cors({ credentials: true, origin: true }));
@@ -23,6 +22,11 @@ logger.info("🤖 Initializing middleware");
 app.use(morgan("tiny", { stream: logger.stream }));
 app.use("/", router);
 app.use(errorHandler);
+
+// enable body parsing for POST request
+// configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Serve the application at the given port
 if (process.env.NODE_ENV !== "test") {
