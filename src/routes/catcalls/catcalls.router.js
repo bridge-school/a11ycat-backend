@@ -7,5 +7,5 @@ const router = express.Router();
 router.get("", catcallsController);
 
 module.exports = {
-  catallsRouter: router
+  catcallsRouter: router
 };
