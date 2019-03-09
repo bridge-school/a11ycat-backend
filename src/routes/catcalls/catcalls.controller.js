@@ -10,5 +10,5 @@ const catcallsController = (req, res) => {
 };
 
 module.exports = {
-  catallsController
+  catcallsController
 };
