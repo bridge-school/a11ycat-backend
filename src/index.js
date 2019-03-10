@@ -2,8 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const admin = require("firebase-admin");
 const cors = require("cors");
-var bodyParser = require("body-parser");
-
+const bodyParser = require("body-parser");
 const router = require("./api");
 const { logger } = require("./utils/logger");
 const { errorHandler } = require("./middleware/error-handler");
@@ -14,8 +13,7 @@ const app = express();
 // CORS
 app.use(cors({ credentials: true, origin: true }));
 
-// enable body parsing for POST request
-// configuring express to use body-parser as middle-ware.
+// enable body parsing of POST request using body-parser as middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
