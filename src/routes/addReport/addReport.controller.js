@@ -1,21 +1,17 @@
 const db = require("../../db");
 
 const addReportController = (req, res) => {
-  // db.collection("catcalls")
-  //   .get()
-  //   .then(snapshot => snapshot.docs.map(doc => doc.data()))
-  //   .then(data => {
-  //     res.json({ data });
-  //   });
-
-  // var emojiRating = req.body.emojiRating;
-  // const location = "Toronto";
-  // console.log(`emoji rating is ${emojiRating} and location is ${location}`);
+  const emojiRating = req.body.formData.emojiRating;
+  // const location = req.body.formData.location;
+  // const textLocation = req.body.formData.textLocation;
+  const location = { lat: 12.3456, lng: 23.4567 };
+  const textLocation = "123 Fake Street";
 
   // Add a new document with a generated id.
   db.collection("testPosts")
     .add({
-      test: "success"
+      emojiRating,
+      location
     })
     .then(function(docRef) {
       console.log("Document written with ID: ", docRef.id);
@@ -24,19 +20,6 @@ const addReportController = (req, res) => {
       console.error("Error adding document: ", error);
     });
 };
-
-// Add a new document with a generated id.
-db.collection("testPosts")
-  .add({
-    name: "Tokyo",
-    country: "Japan"
-  })
-  .then(function(docRef) {
-    console.log("Document written with ID: ", docRef.id);
-  })
-  .catch(function(error) {
-    console.error("Error adding document: ", error);
-  });
 
 module.exports = {
   addReportController

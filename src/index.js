@@ -14,6 +14,11 @@ const app = express();
 // CORS
 app.use(cors({ credentials: true, origin: true }));
 
+// enable body parsing for POST request
+// configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // The port the express app will listen on
 const port = process.env.PORT || 8081;
 
@@ -22,11 +27,6 @@ logger.info("🤖 Initializing middleware");
 app.use(morgan("tiny", { stream: logger.stream }));
 app.use("/", router);
 app.use(errorHandler);
-
-// enable body parsing for POST request
-// configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // Serve the application at the given port
 if (process.env.NODE_ENV !== "test") {
