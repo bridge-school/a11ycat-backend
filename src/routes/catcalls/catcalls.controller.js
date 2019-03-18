@@ -14,9 +14,9 @@ const catcallsController = (req, res) => {
 };
 
 const postCatCallController = (req, res) => {
-  const emojiRating = req.body.formData.emojiRating;
-  const location = req.body.formData.location;
-  const textLocation = req.body.formData.textLocation;
+  const emojiRating = req.body.emojiRating;
+  const location = req.body.location;
+  const textLocation = req.body.textLocation;
 
   // Add a new document with a generated id.
   db.collection("catcalls")
